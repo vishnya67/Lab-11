@@ -1,0 +1,6 @@
+with open("source.txt", "r", encoding="utf-8") as source, \
+     open("filtered.txt", "w", encoding="utf-8") as filtered:
+
+    for line in source:
+        if len(line.strip()) > 20:
+            filtered.write(line)
