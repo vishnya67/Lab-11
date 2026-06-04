@@ -1,0 +1,29 @@
+from datetime import date
+
+year = int(input("Рік народження: "))
+month = int(input("Місяць народження: "))
+day = int(input("День народження: "))
+
+birth_date = date(year, month, day)
+today = date.today()
+
+age = today.year - birth_date.year
+if (today.month, today.day) < (birth_date.month, birth_date.day):
+    age -= 1
+
+weekdays = [
+    "понеділок", "вівторок", "середа",
+    "четвер", "п'ятниця", "субота", "неділя"
+]
+birthday_weekday = weekdays[birth_date.weekday()]
+
+next_birthday = date(today.year, birth_date.month, birth_date.day)
+
+if next_birthday < today:
+    next_birthday = date(today.year + 1, birth_date.month, birth_date.day)
+
+days_until_birthday = (next_birthday - today).days
+
+print(f"Вік: {age} років")
+print(f"День народження: {birthday_weekday}")
+print(f"Днів до наступного дня народження: {days_until_birthday}")
